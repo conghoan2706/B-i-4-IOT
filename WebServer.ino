@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <WebServer.h>
 #include <DHT.h>
-// Đã xóa thư viện ArduinoJson
+
 
 const char* ssid = "Hoàn";
 const char* password = "11223347";
@@ -14,7 +14,7 @@ WebServer server(80);
 DHT dht(DHTPIN, DHTTYPE);
 bool ledState = false;
 
-// HTML Interface (Giữ nguyên vì JS vẫn nhận được chuỗi định dạng JSON)
+
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE HTML><html>
 <head>
@@ -51,7 +51,7 @@ void handleRoot() {
 }
 
 // GET /api/sensor
-// Thay đổi: Tự tạo chuỗi JSON thủ công
+
 void handleSensor() {
   float t = dht.readTemperature();
   float h = dht.readHumidity();
